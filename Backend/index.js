@@ -18,7 +18,7 @@ dotenv.config("./.env");
   
 // })
 
-app.use("/",route )
+app.use("/",route );
 // db.urlSchema.deleteMany({ shortUrl: null });
 
 // app.get("/:id",route)
