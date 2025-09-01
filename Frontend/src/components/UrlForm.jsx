@@ -8,7 +8,7 @@ export default function App() {
 
   const handleShorten = async () => {
   try {
-    const { data } = await axios.post("http://localhost:3000/", {url}  // <-- match the field your backend expects
+    const { data } = await axios.post("https://url-shortener-5-tiai.onrender.com/", {url}  // <-- match the field your backend expects
     );
     console.log(data);
 
