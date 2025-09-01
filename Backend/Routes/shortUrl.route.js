@@ -3,7 +3,9 @@ import createShortUrl from "../Controller/createShortUrl.controller.js";
 import urlSchema from "../models/shortUrl.model.js";
 
 const route = express.Router();
-
+route.get("/",(req,res)=>{
+  res.send("Welcome to URL Shortner API")
+});
 // ✅ create a short URL
 route.post("/", createShortUrl);
 
