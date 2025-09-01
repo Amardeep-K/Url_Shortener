@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function App() {
-  const [url, setUrl] = useState("https://www.youtube.com/");
+  const [url, setUrl] = useState("https://www.example.com/");
   const [shortUrl, setShortUrl] = useState("");
  
 
@@ -32,14 +32,21 @@ export default function App() {
         <div className="flex flex-col gap-4">
           <input
             type="text"
-           
+            placeholder="https://www.example.com/"           
             value={url}
             onInput={(e) => {setUrl(e.target.value)
-                console.log(e.target.value)
+               
+                
             }}
+             onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleShorten();
+              }}}
+            
             className="w-full px-4 py-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
+           
             onClick={handleShorten}
             className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition cursor-pointer"
           >
