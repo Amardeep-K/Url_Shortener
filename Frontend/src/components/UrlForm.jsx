@@ -1,20 +1,27 @@
 import { useState } from "react";
 import axios from "axios";
+import Loader from "./Loader";
+
+
 
 export default function App() {
+  const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState("https://www.example.com/");
   const [shortUrl, setShortUrl] = useState("");
  
 
   const handleShorten = async () => {
   try {
-    const { data } = await axios.post("https://url-shortener-5-a1ek.onrender.com/", {url}  // <-- match the field your backend expects
+    setLoading(true);
+    const { data } = await axios.post("https://shrinkeurl.netlify.app/", {url}  // <-- match the field your backend expects
     );
     console.log(data);
 
     setShortUrl(data); 
   } catch (err) {
     console.error(err);
+  }finally{
+    setLoading(false);
   }
 };
   return (
@@ -53,6 +60,7 @@ export default function App() {
             Shorten URL
           </button>
         </div>
+        {loading && <Loader />}
 
         {/* Result */}
         {shortUrl && (
