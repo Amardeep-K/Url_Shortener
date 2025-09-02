@@ -5,7 +5,7 @@ import Loader from "./Loader";
 
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState("https://www.example.com/");
   const [shortUrl, setShortUrl] = useState("");
  
@@ -20,6 +20,8 @@ export default function App() {
     setShortUrl(data); 
   } catch (err) {
     console.error(err);
+  }finally{
+    setLoading(false);
   }
 };
   return (
