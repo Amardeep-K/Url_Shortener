@@ -5,7 +5,7 @@ import Loader from "./Loader";
 
 
 export default function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [url, setUrl] = useState("https://www.example.com/");
   const [shortUrl, setShortUrl] = useState("");
  
@@ -13,15 +13,13 @@ export default function App() {
   const handleShorten = async () => {
   try {
     setLoading(true);
-    const { data } = await axios.post("https://shrinkeurl.netlify.app/", {url}  // <-- match the field your backend expects
+    const { data } = await axios.post("https://url-shortener-5-a1ek.onrender.com", {url}  // <-- match the field your backend expects
     );
     console.log(data);
 
     setShortUrl(data); 
   } catch (err) {
     console.error(err);
-  }finally{
-    setLoading(false);
   }
 };
   return (
