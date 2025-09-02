@@ -3,9 +3,9 @@ import './Loader.css'
 const Loader = () => {
   return (
     <>
-    <div className="h-screen fixed">
+   
     <div className='loader'></div>
-    </div>
+    
     </>
   )
 }
